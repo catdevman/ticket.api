@@ -31,4 +31,8 @@ class User extends Moloquent implements AuthenticatableContract, AuthorizableCon
     protected $hidden = [
         'password',
     ];
+
+    public function tickets(){
+      return $this->hasMany(\App\Ticket::class);
+    }
 }
