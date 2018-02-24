@@ -12,8 +12,10 @@
 */
 
 $factory->define(App\User::class, function (Faker\Generator $faker) {
+    $gender = $faker->randomElements(['male', 'female']);
     return [
-        'name' => $faker->name,
+        'name' => $faker->name($gender[0]),
         'email' => $faker->email,
+        'gender' => $gender[0]
     ];
 });
