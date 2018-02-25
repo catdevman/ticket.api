@@ -41,6 +41,7 @@ $factory->define(App\Ticket::class, function (Faker\Generator $faker) {
 });
 
 $factory->define(App\Note::class, function (Faker\Generator $faker) {
+  $creator = factory(\App\User::class)->create();
     return [
         'text' => $faker->text,
         'workTime' => $faker->randomDigitNotNull(0,9),
@@ -48,6 +49,7 @@ $factory->define(App\Note::class, function (Faker\Generator $faker) {
         'billable' => $faker->boolean,
         'mileage' => $faker->randomDigitNotNull(0,250),
         'private' => $faker->boolean,
-        'resolving' => $faker->boolean
+        'resolving' => $faker->boolean,
+        'creator' => $creator
     ];
 });
