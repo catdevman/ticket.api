@@ -23,4 +23,8 @@ class Note extends Moloquent
         'private',
         'resolving'
     ];
+
+    public function creator(){
+      return $this->hasOne(\App\User::class);
+    }
 }
