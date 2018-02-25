@@ -48,12 +48,14 @@ class Ticket extends Moloquent
         'notes'
     ];
 
+    protected $hidden = ['owner_ids'];
+
     public function creator(){
       return $this->hasOne(\App\User::class);
     }
 
     public function owners(){
-      return $this->belongsToMany(\App\User::class);
+      return $this->belongsToMany(\App\User::class, null, 'owned_tickets','owner_ids');
     }
 
     public function notes(){
